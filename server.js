@@ -13,7 +13,9 @@ const app = express();
 
 app.get('/greet/:name', (req, res) => {
     const {name} = req.params
-    res.send(`<h1>Hello ${name}</h1>`);
+    const greetings = ["Hello there,", "Whatup,", "Usuuuuh,", "Fancy seeing you here,"]
+    const random = Math.floor(Math.random()*greetings.length);
+    res.send(`<h1>${greetings[random]} ${name}</h1>`);
 })
 
 // 2. Rolling the Dice
@@ -109,7 +111,7 @@ app.get ('/shoes', (req, res) => {
         res.send(typeOfShoe)
     }
     else {
-        res.send("No results")
+        res.send(shoes)
     }
 
 })
